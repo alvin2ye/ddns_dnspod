@@ -23,10 +23,6 @@ start() {
         exit 1
     else
         $PROG_PATH/$PROG $PROG_ARGS 2>&1 >/var/log/$PROG &
-        pid=`ps ax | grep -i 'ddns_dnspo[d]' | head | awk '{print $1}'`
-
-        echo "$PROG started"
-        echo $pid > "$PID_PATH/$PROG.pid"
         exit 0
     fi
 }
@@ -34,12 +30,10 @@ start() {
 stop() {
     echo "begin stop"
     if [ -e "$PID_PATH/$PROG.pid" ]; then
-        ## Program is running, so stop it
-	pid=`ps ax | grep -i 'ddns_dnspo[d]' | head | awk '{print $1}'`
-	kill $pid
-
-        rm -f  "$PID_PATH/$PROG.pid"
+        kill $(cat "$PID_PATH/$PROG.pid")
+        rm "$PID_PATH/$PROG.pid"
         echo "$PROG stopped"
+        exit 0
     else
         ## Program is not running, exit with error.
         echo "Error! $PROG not started!" 1>&2

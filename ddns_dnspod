@@ -26,6 +26,8 @@ function main()
 	fi
 }
 
+echo $$ > /var/run/ddns_dnspod.pid
+
 while true
 do
   main
