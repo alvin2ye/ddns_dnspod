@@ -12,7 +12,7 @@
 ### END INIT INFO
 
 ## Fill in name of program here.
-PROG="ddns_dnspod_deamon"
+PROG="ddns_dnspod"
 PROG_PATH="/opt/ddns_dnspod" ## Not need, but sometimes helpful (if $PROG resides in /opt for example).
 PROG_ARGS=""
 PID_PATH="/var/run/"
@@ -25,7 +25,7 @@ start() {
     else
         ## Change from /dev/null to something like /var/log/$PROG if you want to save output.
         $PROG_PATH/$PROG $PROG_ARGS 2>&1 >/var/log/$PROG &
-	pid=`ps ax | grep -i 'ddns_dnspod_deamo[n]' | head | awk '{print $1}'`
+	pid=`ps ax | grep -i 'ddns_dnspo[d]' | head | awk '{print $1}'`
 
         echo "$PROG started"
         echo $pid > "$PID_PATH/$PROG.pid"
@@ -36,7 +36,7 @@ stop() {
     echo "begin stop"
     if [ -e "$PID_PATH/$PROG.pid" ]; then
         ## Program is running, so stop it
-	pid=`ps ax | grep -i 'ddns_dnspod_deamo[n]' | head | awk '{print $1}'`
+	pid=`ps ax | grep -i 'ddns_dnspo[d]' | head | awk '{print $1}'`
 	kill $pid
 
         rm -f  "$PID_PATH/$PROG.pid"
