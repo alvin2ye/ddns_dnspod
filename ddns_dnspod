@@ -2,13 +2,15 @@
 
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 API=https://dnsapi.cn/Record.Ddns
+CURRPATH=$(dirname $0)
 
-email=$(cat ddns_dnspod.conf | grep '^email=' | awk -F = '{print $2}')
-password=$(cat ddns_dnspod.conf | grep '^password=' | awk -F = '{print $2}')
-domain_id=$(cat ddns_dnspod.conf | grep '^domain_id=' | awk -F = '{print $2}')
-record_id=$(cat ddns_dnspod.conf | grep '^record_id=' | awk -F = '{print $2}')
-sub_domain=$(cat ddns_dnspod.conf | grep '^sub_domain=' | awk -F = '{print $2}')
-full_domain=$(cat ddns_dnspod.conf | grep '^full_domain=' | awk -F = '{print $2}')
+# READ conf file
+email=$(cat $CURRPATH/ddns_dnspod.conf | grep '^email=' | awk -F = '{print $2}')
+password=$(cat $CURRPATH/ddns_dnspod.conf | grep '^password=' | awk -F = '{print $2}')
+domain_id=$(cat $CURRPATH/ddns_dnspod.conf | grep '^domain_id=' | awk -F = '{print $2}')
+record_id=$(cat $CURRPATH/ddns_dnspod.conf | grep '^record_id=' | awk -F = '{print $2}')
+sub_domain=$(cat $CURRPATH/ddns_dnspod.conf | grep '^sub_domain=' | awk -F = '{print $2}')
+full_domain=$(cat $CURRPATH/ddns_dnspod.conf | grep '^full_domain=' | awk -F = '{print $2}')
 
 function main()
 {
@@ -24,6 +26,6 @@ function main()
 
 while true
 do
-	main
-	sleep 60
+  main
+  sleep 60
 done
