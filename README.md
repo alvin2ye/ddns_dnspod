@@ -29,6 +29,7 @@ sudo mkdir -p /opt/ddns_dnspod
 sudo cp * /opt/ddns_dnspod/
 sudo ln -s /opt/ddns_dnspod/ddns_dnspod_deamon /etc/init.d/ddns_dnspod
 sudo update-rc.d -f ddns_dnspod defaults
+# sudo vi /opt/ddns_dnspod/ddns_dnspod.conf
 sudo /etc/init.d/ddns_dnspod start
 ```
 
