@@ -20,7 +20,7 @@ function main()
 
 	if [ "$new_ip" != "$old_ip" ];
 	then
-      echo "$full_domain change $old_ip to $new_ip"
+      echo "$full_domain change to $new_ip"
       
 	    msg=$(curl -sL -d "format=json&login_email=$email&login_password=$password&domain_id=$domain_id&record_id=$record_id&sub_domain=$sub_domain&record_line=默认" $API);
 	fi
