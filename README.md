@@ -1,9 +1,3 @@
-# install
-
-```
-git clone https://github.com/alvin2ye/ddns_dnspod.git
-```
-
 # conifg
 ```
 cp ddns_dnspod.conf.sample ddns_dnspod.conf
