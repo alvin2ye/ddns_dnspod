@@ -1,7 +1,8 @@
 # source
 
-git@github.com:alvin2ye/ddns_dnspod.git
-
+```
+git clone git@github.com:alvin2ye/ddns_dnspod.git
+```
 
 # conifg
 ```
